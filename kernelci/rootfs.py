@@ -16,7 +16,10 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 from kernelci import shell_cmd
+from kernelci.storage import upload_files
 import os
+import requests
+from urllib.parse import urljoin
 
 
 def _build_debos(name, config, data_path):
@@ -54,3 +57,14 @@ def build(name, config, data_path):
     else:
         print("rootfs_type:{} not supported".format(config.rootfs_type))
         return False
+
+
+def upload(api, token, upload_path, rootfsdir):
+    """Upload rootfs to KernelCI backend.
+
+    *api* is the URL of the KernelCI backend API
+    *token* is the backend API token to use
+    *upload_path* is the target on KernelCI backend
+    *rootfsdir* is the local rootfs directory path to upload
+    """
+    return upload_files(api, token, upload_path, rootfsdir)
