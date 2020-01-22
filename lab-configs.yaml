@@ -44,6 +44,10 @@ labs:
             - usb
             - v4l2-compliance-uvc
             - v4l2-compliance-vivid
+            - kms-rockchip
+            - kms-exynos
+            - kms-tegra
+            - gpu-panfrost
 
   lab-drue:
     lab_type: lava
