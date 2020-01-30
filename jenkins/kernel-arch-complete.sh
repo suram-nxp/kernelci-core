@@ -2,6 +2,11 @@
 
 set -x
 
+if [ "$TREE_NAME" != "kernelci" ]; then
+    echo "Only dealing with kernelci tree on staging.kernelci.org"
+    exit 0
+fi
+
 if [ "$PUBLISH" != "true" ]; then
   echo "Skipping publish step.  PUBLISH != true."
   exit 0
