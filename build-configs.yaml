@@ -205,7 +205,7 @@ build_configs_defaults:
       architectures: &default_architectures
 
         arc: &arc_arch
-          base_defconfig: 'nsim_hs_defconfig'
+          base_defconfig: 'haps_hs_smp_defconfig'
           extra_configs: ['allnoconfig']
           filters: &arc_default_filters
             # remove any non-ARCv2 defconfigs since we only have ARCv2 toolchain
