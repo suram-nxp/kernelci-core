@@ -882,6 +882,7 @@ device_types:
       cpu: 'arm926'
       memory: 256
       model: 'model=smc91c111'
+      guestfs_interface: 'scsi'
     dtb: 'versatile-pb.dtb'
     boot_method: qemu
     filters:
@@ -896,6 +897,8 @@ device_types:
       machine: 'vexpress-a9'
       cpu: 'cortex-a9'
       model: 'model=lan9118'
+      guestfs_interface: 'none'
+      extra_options: ['-device virtio-blk-device,drive=lavatest']
     dtb: 'vexpress-v2p-ca9.dtb'
     boot_method: qemu
     filters:
@@ -910,11 +913,14 @@ device_types:
       machine: 'vexpress-a15'
       cpu: 'cortex-a15'
       model: 'model=lan9118'
+      guestfs_interface: 'none'
+      extra_options: ['-device virtio-blk-device,drive=lavatest']
     dtb: 'vexpress-v2p-ca15-tc1.dtb'
     boot_method: qemu
     filters:
       - whitelist: {defconfig: ['vexpress_defconfig']}
 
+# we use virt-2.11 due to https://bugzilla.redhat.com/show_bug.cgi?id=1633328
   qemu_arm-virt-gicv2:
     base_name: qemu
     mach: qemu
@@ -924,7 +930,7 @@ device_types:
       arch: arm
       cpu: 'cortex-a15'
       guestfs_interface: 'virtio'
-      machine: 'virt,gic-version=2'
+      machine: 'virt-2.11,gic-version=2'
     filters:
       - whitelist: {defconfig: ['multi_v7_defconfig']}
 
@@ -937,7 +943,7 @@ device_types:
       arch: arm
       cpu: 'cortex-a15'
       guestfs_interface: 'virtio'
-      machine: 'virt,gic-version=3'
+      machine: 'virt-2.11,gic-version=3'
     filters:
       - whitelist: {defconfig: ['multi_v7_defconfig']}
 
