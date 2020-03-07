@@ -746,6 +746,46 @@ build_configs:
     branch: 'linux-5.4.y'
     variants: *stable_variants
 
+  stable-rc_queue-4.4:
+    tree: stable-rc
+    branch: 'queue/4.4'
+    variants: *stable_variants
+    reference:
+      tree: stable
+      branch: 'linux-4.4.y'
+
+  stable-rc_queue-4.9:
+    tree: stable-rc
+    branch: 'queue/4.9'
+    variants: *stable_variants
+    reference:
+      tree: stable
+      branch: 'linux-4.9.y'
+
+  stable-rc_queue-4.14:
+    tree: stable-rc
+    branch: 'queue/4.14'
+    variants: *stable_variants
+    reference:
+      tree: stable
+      branch: 'linux-4.14.y'
+
+  stable-rc_queue-4.19:
+    tree: stable-rc
+    branch: 'queue/4.19'
+    variants: *stable_variants
+    reference:
+      tree: stable
+      branch: 'linux-4.19.y'
+
+  stable-rc_queue-5.4:
+    tree: stable-rc
+    branch: 'queue/5.4'
+    variants: *stable_variants
+    reference:
+      tree: stable
+      branch: 'linux-5.4.y'
+
   stable-rc_3.18:
     tree: stable-rc
     branch: 'linux-3.18.y'
