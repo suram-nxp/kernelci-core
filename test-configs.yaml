@@ -1058,6 +1058,11 @@ device_types:
     filters:
       - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
 
+  fsl-s32v234sbc:
+    mach: freescale
+    class: arm64-dtb
+    boot_method: uboot
+
   sun8i-a33-sinlinx-sina33:
     mach: allwinner
     class: arm-dtb
@@ -1937,6 +1942,11 @@ test_configs:
       - sleep
       - usb
       - v4l2-compliance-uvc
+
+  - device_type: fsl-s32v234sbc
+    test_plans:
+      - baseline
+      - boot
 
   - device_type: socfpga-cyclone5-socrates
     test_plans:
