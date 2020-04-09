@@ -579,6 +579,11 @@ device_types:
             - 'multi_v5_defconfig'
             - 'allmodconfig'
 
+  imx6q-var-dt6customboard:
+    mach: imx
+    class: arm-dtb
+    boot_method: uboot
+
   imx6ul-pico-hobbit:
     mach: imx
     class: arm-dtb
@@ -1085,6 +1090,11 @@ device_types:
       - blacklist: *allmodconfig_filter
       - blacklist: {defconfig: ['multi_v7_defconfig+CONFIG_SMP=n']}
 
+  stm32mp157c-dk2:
+    mach: stm32
+    class: arm-dtb
+    boot_method: uboot
+
   sun4i-a10-olinuxino-lime:
     mach: allwinner
     class: arm-dtb
@@ -1208,6 +1218,11 @@ device_types:
     boot_method: uboot
 
   sun8i-h2-plus-libretech-all-h3-cc:
+    mach: allwinner
+    class: arm-dtb
+    boot_method: uboot
+
+  sun8i-h3-bananapi-m2-plus:
     mach: allwinner
     class: arm-dtb
     boot_method: uboot
@@ -1573,6 +1588,11 @@ test_configs:
       - sleep
 
   - device_type: imx6q-nitrogen6x
+    test_plans:
+      - baseline
+      - boot
+
+  - device_type: imx6q-var-dt6customboard
     test_plans:
       - baseline
       - boot
@@ -1963,6 +1983,12 @@ test_configs:
       - boot-nfs
       - kselftest
 
+  - device_type: stm32mp157c-dk2
+    test_plans:
+      - baseline
+      - boot
+      - kselftest
+
   - device_type: sun4i-a10-olinuxino-lime
     test_plans:
       - baseline
@@ -2080,6 +2106,11 @@ test_configs:
       - boot
 
   - device_type: sun8i-h2-plus-libretech-all-h3-cc
+    test_plans:
+      - baseline
+      - boot
+
+  - device_type: sun8i-h3-bananapi-m2-plus
     test_plans:
       - baseline
       - boot
