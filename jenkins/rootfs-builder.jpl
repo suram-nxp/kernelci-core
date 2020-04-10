@@ -36,6 +36,8 @@ ROOTFS_CONFIG
   Configuration name to build RootFS images
 ROOTFS_ARCH
   RootFS image architecture
+PIPELINE_VERSION
+  Unique string identifier for the series of rootfs build jobs
 */
 
 
@@ -82,7 +84,8 @@ node("debos && docker") {
     print("""\
     Config:    ${params.ROOTFS_CONFIG}
     CPU arch:  ${params.ROOTFS_ARCH}
-    Container: ${docker_image}""")
+    Container: ${docker_image}
+    Pipeline:  ${pipeline_version}""")
 
     j.dockerPullWithRetry(docker_image).inside() {
         j.cloneKciCore(kci_core, params.KCI_CORE_URL, params.KCI_CORE_BRANCH)
