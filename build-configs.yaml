@@ -541,30 +541,13 @@ build_configs:
     variants:
       gcc-8:
         build_environment: gcc-8
-        fragments: ['kselftest']
+        fragments: [kselftest, virtualvideo]
         architectures:
-          arc:
-            base_defconfig: 'haps_hs_smp_defconfig'
-            filters:
-              - whitelist: {defconfig: ['haps_hs_smp_defconfig']}
           arm: &staging_arm
             base_defconfig: 'multi_v7_defconfig'
             filters:
               - whitelist: {defconfig: ['multi_v7_defconfig']}
           arm64:
-            filters:
-              - whitelist: {defconfig: ['defconfig']}
-            extra_configs:
-              - 'defconfig+CONFIG_CPU_BIG_ENDIAN=y'
-          i386:
-            base_defconfig: 'i386_defconfig'
-            filters:
-              - whitelist: {defconfig: ['i386_defconfig']}
-          mips:
-            base_defconfig: '32r2el_defconfig'
-            filters:
-              - whitelist: {defconfig: ['32r2el_defconfig']}
-          riscv:
             filters:
               - whitelist: {defconfig: ['defconfig']}
           x86_64: &staging_x86_64
