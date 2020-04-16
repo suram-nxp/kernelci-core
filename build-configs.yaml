@@ -587,6 +587,12 @@ build_configs:
               - 'defconfig+CONFIG_CPU_BIG_ENDIAN=y'
           x86_64: *staging_x86_64
 
+      clang-10:
+        build_environment: clang-10
+        architectures:
+          arm64: *arm_defconfig
+          x86_64: *x86_64_defconfig
+
   khilman:
     tree: khilman
     branch: 'to-build'
