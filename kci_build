@@ -196,6 +196,9 @@ def _show_build_env(build_env, arch=None):
         xc = build_env.get_cross_compile(args.arch)
         if xc:
             print(xc)
+        xc_compat = build_env.get_cross_compile_compat(args.arch)
+        if xc_compat:
+            print(xc_compat)
 
 
 class cmd_get_build_env(Command):
