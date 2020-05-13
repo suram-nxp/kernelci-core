@@ -685,6 +685,14 @@ device_types:
     filters:
       - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
 
+# this is the same device than r8a7796-m3ulcb
+  r8a77960-ulcb:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
   meson8b-odroidc1:
     mach: amlogic
     class: arm-dtb
@@ -1086,6 +1094,15 @@ device_types:
     flags: ['lpae']
 
   r8a7795-salvator-x:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    flags: ['big_endian']
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
+# this is the same device than r8a7795-salvator-x
+  r8a77950-salvator-x:
     mach: renesas
     class: arm64-dtb
     boot_method: uboot
@@ -1981,7 +1998,24 @@ test_configs:
       - kselftest
       - simple
 
+# this is the same device than r8a7795-salvator-x
+  - device_type: r8a77950-salvator-x
+    test_plans:
+      - baseline
+      - boot
+      - boot-nfs
+      - kselftest
+      - simple
+
   - device_type: r8a7796-m3ulcb
+    test_plans:
+      - baseline
+      - boot
+      - simple
+      - usb
+
+# this is the same device than r8a7796-m3ulcb
+  - device_type: r8a77960-ulcb
     test_plans:
       - baseline
       - boot
