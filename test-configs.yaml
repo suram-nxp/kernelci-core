@@ -468,6 +468,11 @@ device_types:
     filters:
       - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
 
+  d2500cc:
+    mach: x86
+    arch: x86_64
+    boot_method: grub
+
   da850-lcdk:
     mach: davinci
     class: arm-dtb
@@ -1510,6 +1515,11 @@ test_configs:
       - baseline
       - boot
       - boot-nfs
+
+  - device_type: d2500cc
+    test_plans:
+      - baseline
+      - boot
 
   - device_type: d03
     test_plans:
