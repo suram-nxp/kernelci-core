@@ -1020,6 +1020,29 @@ device_types:
     filters:
       - whitelist: {defconfig: ['defconfig']}
 
+  r8a7743-iwg20d-q7:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    dtb: 'r8a7743-iwg20d-q7-dbcm-ca.dtb'
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
+  r8a7745-iwg22d-sodimm:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    dtb: 'r8a7745-iwg22d-sodimm-dbhd-ca.dtb'
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
+  r8a77470-iwg23s-sbc:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
   r8a774a1-hihope-rzg2m-ex:
     mach: renesas
     class: arm64-dtb
@@ -1849,6 +1872,18 @@ test_configs:
       - baseline-uefi_x86_64
       - baseline-uefi_x86-mixed
       - v4l2-compliance-vivid
+
+  - device_type: r8a7743-iwg20d-q7
+    test_plans:
+      - baseline
+
+  - device_type: r8a7745-iwg22d-sodimm
+    test_plans:
+      - baseline
+
+  - device_type: r8a77470-iwg23s-sbc
+    test_plans:
+      - baseline
 
   - device_type: r8a774a1-hihope-rzg2m-ex
     test_plans:
