@@ -658,13 +658,6 @@ device_types:
       - blacklist: {defconfig: ['allmodconfig', 'multi_v5_defconfig']}
       - blacklist: {kernel: ['v3.']}
 
-  r8a7796-m3ulcb:
-    mach: renesas
-    class: arm64-dtb
-    boot_method: uboot
-    filters:
-      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
-
   meson8b-odroidc1:
     mach: amlogic
     class: arm-dtb
@@ -1032,6 +1025,21 @@ device_types:
     class: arm-dtb
     boot_method: uboot
 
+  r8a7795-salvator-x:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    flags: ['big_endian']
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
+  r8a7796-m3ulcb:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
   rk3399-gru-kevin:
     mach: rockchip
     class: arm64-dtb
@@ -1064,14 +1072,6 @@ device_types:
     class: arm-dtb
     boot_method: depthcharge
     flags: ['lpae']
-
-  r8a7795-salvator-x:
-    mach: renesas
-    class: arm64-dtb
-    boot_method: uboot
-    flags: ['big_endian']
-    filters:
-      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
 
   sun8i-a33-sinlinx-sina33:
     mach: allwinner
