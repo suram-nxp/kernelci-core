@@ -675,16 +675,6 @@ device_types:
       - blacklist: {defconfig: ['allmodconfig', 'multi_v5_defconfig']}
       - blacklist: {kernel: ['v3.']}
 
-  r8a7796-m3ulcb: &r8a7796-m3ulcb
-    mach: renesas
-    class: arm64-dtb
-    boot_method: uboot
-    filters:
-      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
-
-# this is the same device than r8a7796-m3ulcb
-  r8a77960-ulcb: *r8a7796-m3ulcb
-
   meson8b-odroidc1:
     mach: amlogic
     class: arm-dtb
@@ -1062,10 +1052,75 @@ device_types:
     filters:
       - whitelist: {defconfig: ['defconfig']}
 
+  r8a7743-iwg20d-q7:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    dtb: 'r8a7743-iwg20d-q7-dbcm-ca.dtb'
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
+  r8a7745-iwg22d-sodimm:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    dtb: 'r8a7745-iwg22d-sodimm-dbhd-ca.dtb'
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
+  r8a77470-iwg23s-sbc:
+    mach: renesas
+    class: arm-dtb
+    boot_method: uboot
+    filters:
+      - whitelist: {defconfig: ['multi_v7_defconfig', 'shmobile_defconfig']}
+
+  r8a774a1-hihope-rzg2m-ex:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - whitelist: {defconfig: ['defconfig']}
+
+  r8a774b1-hihope-rzg2n-ex:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - whitelist: {defconfig: ['defconfig']}
+
+  r8a774c0-ek874:
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - whitelist: {defconfig: ['defconfig']}
+
   r8a7791-porter:
     mach: renesas
     class: arm-dtb
     boot_method: uboot
+
+  r8a7795-salvator-x: &r8a7795-salvator-x
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    flags: ['big_endian']
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
+# this is the same device than r8a7795-salvator-x
+  r8a77950-salvator-x: *r8a7795-salvator-x
+
+  r8a7796-m3ulcb: &r8a7796-m3ulcb
+    mach: renesas
+    class: arm64-dtb
+    boot_method: uboot
+    filters:
+      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
+
+# this is the same device than r8a7796-m3ulcb
+  r8a77960-ulcb: *r8a7796-m3ulcb
 
   rk3399-gru-kevin:
     mach: rockchip
@@ -1099,17 +1154,6 @@ device_types:
     class: arm-dtb
     boot_method: depthcharge
     flags: ['lpae']
-
-  r8a7795-salvator-x: &r8a7795-salvator-x
-    mach: renesas
-    class: arm64-dtb
-    boot_method: uboot
-    flags: ['big_endian']
-    filters:
-      - blacklist: {defconfig: ['allnoconfig', 'allmodconfig']}
-
-# this is the same device than r8a7795-salvator-x
-  r8a77950-salvator-x: *r8a7795-salvator-x
 
   sun8i-a33-sinlinx-sina33:
     mach: allwinner
@@ -1868,6 +1912,30 @@ test_configs:
       - baseline-uefi_x86_64
       - baseline-uefi_x86-mixed
       - v4l2-compliance-vivid
+
+  - device_type: r8a7743-iwg20d-q7
+    test_plans:
+      - baseline
+
+  - device_type: r8a7745-iwg22d-sodimm
+    test_plans:
+      - baseline
+
+  - device_type: r8a77470-iwg23s-sbc
+    test_plans:
+      - baseline
+
+  - device_type: r8a774a1-hihope-rzg2m-ex
+    test_plans:
+      - baseline
+
+  - device_type: r8a774b1-hihope-rzg2n-ex
+    test_plans:
+      - baseline
+
+  - device_type: r8a774c0-ek874
+    test_plans:
+      - baseline
 
   - device_type: r8a7791-porter
     test_plans:
