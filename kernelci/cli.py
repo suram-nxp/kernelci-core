@@ -262,6 +262,18 @@ class Args(object):
         'action': 'store_true'
     }
 
+    data = {
+        'name': '--data',
+        'help': "Data to be submitted to storage",
+        'required': False
+    }
+
+    data_file = {
+        'name': '--data-file',
+        'help': "Path to the file with data to be submitted to storage",
+        'required': False
+    }
+
 
 class Command(object):
     """A command helper class.
