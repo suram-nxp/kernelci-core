@@ -670,6 +670,11 @@ device_types:
     class: arm64-dtb
     boot_method: uboot
 
+  imx8mp-evk:
+    mach: imx
+    class: arm64-dtb
+    boot_method: uboot
+
   jetson-tk1:
     mach: tegra
     class: arm-dtb
@@ -1711,6 +1716,11 @@ test_configs:
       - kselftest
 
   - device_type: imx8mn-ddr4-evk
+    test_plans:
+      - baseline
+      - kselftest
+
+  - device_type: imx8mp-evk
     test_plans:
       - baseline
       - kselftest
