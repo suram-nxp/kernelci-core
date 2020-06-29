@@ -9,4 +9,15 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 500
 
-RUN pip3 install git+https://github.com/devicetree-org/dt-schema.git@master
+RUN pip3 install --system git+https://github.com/devicetree-org/dt-schema.git@master
+
+RUN sudo apt-get update && install \
+    bison \ 
+    device-tree-compiler \
+    flex \
+    libyaml-dev \
+    pkg-config \
+    python-yaml
+    
+ 
+RUN export PATH=$HOME/.local/bin/:$PATH
