@@ -1,4 +1,11 @@
 rootfs_configs:
+  sid:
+    rootfs_type: debos
+    debian_release: sid
+    debian_mirror: http://deb.debian.org/debian-ports
+    arch_list:
+      - riscv64
+
   buster:
     rootfs_type: debos
     debian_release: buster

@@ -44,7 +44,7 @@ class RootFS_Debos(RootFS):
                  arch_list=None, extra_packages=None,
                  extra_packages_remove=None,
                  extra_files_remove=None, script="",
-                 test_overlay="", crush_image_options=None):
+                 test_overlay="", crush_image_options=None, debian_mirror=""):
 
         super(RootFS_Debos, self).__init__(name, rootfs_type)
         self._debian_release = debian_release
@@ -55,6 +55,7 @@ class RootFS_Debos(RootFS):
         self._script = script
         self._test_overlay = test_overlay
         self._crush_image_options = crush_image_options or list()
+        self._debian_mirror = debian_mirror
 
     @classmethod
     def from_yaml(cls, config, name):
@@ -63,7 +64,7 @@ class RootFS_Debos(RootFS):
             config, ['name', 'debian_release', 'arch_list',
                      'extra_packages', 'extra_packages_remove',
                      'extra_files_remove', 'script', 'test_overlay',
-                     'crush_image_options']))
+                     'crush_image_options', 'debian_mirror']))
         return cls(**kw)
 
     @property
@@ -97,6 +98,10 @@ class RootFS_Debos(RootFS):
     @property
     def crush_image_options(self):
         return list(self._crush_image_options)
+
+    @property
+    def debian_mirror(self):
+        return self._debian_mirror
 
 
 class RootFSFactory(YAMLObject):
